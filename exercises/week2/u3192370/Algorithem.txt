@@ -1,0 +1,40 @@
+Trip to Uni
+Step 1: Goto Light rail station
+Step 2: Wait for Light rail.
+Step 3: Get on Light rail.
+Step 4: Wait until Light rail reaches last station.
+Step 5: Get of at Last station.
+Step 6: Goto bus stop.
+Step 7: Wait for the R8 Bus.
+Step 8: Get on R8 Bus.
+Step 9: Wait until R8 Bus reaches University Avenue.
+Step 10: Get of R8 Bus at University Avenue.
+Step 11: Walk up path towards University.
+Step 12: You have arrived at the University of Canberra.
+
+Morning Routine in the search of coffe.
+Step 1: Wake up.
+Step 2: Stay awake.
+Step 3: Get Out of bed.
+Step 4: Go Down Stairs.
+Step 5: Turn Kettle On to boil water.
+Step 6: Get Cup.
+Step 7: Place Cup on bench.
+Step 8: Get Coffee sachel from cuboard.
+Step 9: Open sachel pour contents into cup.
+Step 10: Put empty sachel in bin.
+Step 11: Get Sugar container.
+Step 12: Put two(2) teaspoons of sugar into cup.
+Step 13: Put Sugar container away.
+Step 14.1: If Kettle still boiling wait.
+Step 14.2: If Kettle has finished boiling pour hot water into cup 
+            until 7/10ths full.
+Step 15: Get Teaspoon.
+Step 16: Stir cup until completly combined.
+Step 17: Goto fridge and open it.
+Step 18: Grab carton of milk.
+Step 19: Take carton of milk to bench and open it.
+Step 20: Pour milk into cup till it is filled the rest of the way.
+Step 21: Close carton of milk and return it to the fridge.
+Step 22: Do a final stir of the Coffee.
+Step 23: Drink the Coffee
