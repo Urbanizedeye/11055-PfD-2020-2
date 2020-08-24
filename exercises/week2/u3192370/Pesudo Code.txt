@@ -1,1 +1,28 @@
-DO WHILEASDFA;SMD
+goto Light rail station
+DO WHILE light_rail_position != Here
+    light_rail_position = light_rail_location
+LOOP
+
+Board Light rail
+
+DO WHILE Station != final_Station
+    get Station = get_Station
+LOOP
+
+disembark Light rail
+
+goto bust stop
+
+DO WHILE Bus != R8
+    Bus = get bus_route
+LOOP
+
+Board Bus
+
+DO WHILE bus_current_stop != University Avenue
+    bus_current_stop = get bus_stop
+LOOP
+
+disembark Bus
+
+goto University
