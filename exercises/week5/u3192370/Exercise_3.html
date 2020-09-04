@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>This is Exercise 3<br></head>
+    <body>
+        <p1 id="para1">Start</p1><br>
+        <p2 id="para2"></p2><br>
+        <p3 id="para3"></p3><br>
+        <p4 id="para4"></p4><br>
+        <p5 id="para5"></p5><br>
+        <p6 id="para6"></p6><br>
+        <p7 id="para7"></p7><br>
+        <p8 id="para8"></p8><br>
+        <p9 id="para9"></p9><br>
+        <p10 id="para10"></p10><br>
+        <p11 id="para11"></p11><br>
+
+        <script>
+
+            //goto Light rail station
+            var startMessage = "Going to the Light Rail Station.";
+            window.alert(startMessage);
+            document.getElementById("para2").innerHTML = startMessage;
+
+            /*
+            WHILE light_rail_position != Here
+                light_rail_position = light_rail_location
+            LOOP
+            */
+            var light_rail_location = ["Hawker Hurricane Station", "B-52 Stratofortress Station", "F-16 Falcon Station", "MiG-21 Station", "Personal Station", "Tu-95 bomber Station", "Bf 109 Station", "P-51 Mustang Station", "Mitsubishi Zero Station", "A-10 Thunderbolt II Station","Final Station"];
+            var atStationMessage = "Waiting for Light rail.";
+            var light_rail_position = light_rail_location[0];
+            var Here = "Personal Station";
+            var int1 = 0;
+            while (light_rail_position != "Personal Station"){
+                window.alert("Current Light Rail Position Location: "+light_rail_position)
+                document.getElementById("para3").innerHTML = "Current Light Rail Position: "+light_rail_position;
+                light_rail_position = light_rail_location[int1];
+                int1 ++;
+            }
+            window.alert("Current Light Rail Position Location: "+light_rail_position)
+            document.getElementById("para3").innerHTML = "Current Light Rail Position: "+light_rail_position;
+
+            //Board Light rail
+            var bL = "Boarding Light Rail";
+            window.alert(bL);
+            document.getElementById("para4").innerHTML = bL;
+            /*
+            WHILE Station != final_Station
+                get Station = get_Station
+            LOOP
+            */
+            var lastStation = "Final Station"
+
+            while (light_rail_position != lastStation){
+                window.alert("Current Station: "+ light_rail_position);
+                document.getElementById("para5").innerHTML = "Current Station: "+ light_rail_position;
+                light_rail_position = light_rail_location[int1];
+                int1 ++;
+            }
+            window.alert("Current Station: "+ light_rail_position);
+            document.getElementById("para5").innerHTML = "Current Station: "+ light_rail_position;
+            
+            //disembark Light rail
+            var disembark = "Disembark from the light rail.";
+            window.alert(disembark);
+            document.getElementById("para6").innerHTML = disembark;
+
+            //goto bust stop
+            var travele = "Head to the bus stop.";
+            window.alert(travele);
+            document.getElementById("para7").innerHTML = travele;
+
+            /*
+            WHILE Bus != R8
+                Bus = get bus_route
+            LOOP
+            */
+            var bus_route = ["T-54", "M47 Patton", "M48 Patton", "TU-25", "T-55", "T-64", "MBT-70", "R8"];
+            var bus = bus_route[0];
+            var wanted_bus = "R8";
+            var int2 = 0;
+            while(bus != "R8"){
+                window.alert("Current Bus: "+bus);
+                document.getElementById("para8").innerHTML = "Current Bus: "+bus;
+                bus = bus_route[int2];
+                int2 ++;
+            }
+            window.alert("Current Bus: "+bus);
+            document.getElementById("para8").innerHTML = "Current Bus: "+bus;
+
+            //Board Bus
+            var board_bus = "Boarding the R8 bus."
+            window.alert(board_bus);
+            document.getElementById("para9").innerHTML = board_bus;
+
+            /*
+            WHILE bus_current_stop != University Avenue
+                bus_current_stop = get bus_stop
+            LOOP
+            */
+            var bus_stop = ["Avenger Stop", "Defiant Stop", "Bounty Stop", "Venus Stop", "Surprise Stop", "University Avenue"];
+            var bus_current_stop = bus_stop[0];
+            var wanted_stop = "University Avenue";
+            var int3 = 0;
+            while(bus_current_stop != "University Avenue"){
+                window.alert("Current Stop: "+bus_current_stop);
+                document.getElementById("para9").innerHTML = "Current Stop: "+bus_current_stop;
+                bus_current_stop = bus_stop[int3];
+                int3 ++;
+            }
+            window.alert("Current Stop: "+bus_current_stop);
+            document.getElementById("para9").innerHTML = "Current Stop: "+bus_current_stop
+            
+            //disembark Bus
+            var disembark_bus = "Disembark Bus."
+            window.alert(disembark_bus);
+            document.getElementById("para10").innerHTML = disembark_bus;
+
+            //goto University
+            var goto_university = "Goto to the University";
+            window.alert(goto_university);
+            document.getElementById("para11").innerHTML = goto_university;
+        </script>
+    </body>
+</html>
