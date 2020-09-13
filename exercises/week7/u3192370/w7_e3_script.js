@@ -15,12 +15,12 @@ e.g.
 
 */
 
-var strVar = "this string"
+var user_full_name = prompt("Input your full name", "Your name here.");
 
-for (let i = 0; i < strVar.length; i++) {
-    document.write("letter number " + i + " = " + strVar[i]);
-}
+var name_split = user_full_name.split(" ");
 
+document.write("Your last name is: "+ name_split[name_split.length -1]);
+alert("Your last name is: "+ name_split[name_split.length -1]);
 
 
 
