@@ -23,8 +23,10 @@ let message = 'tickle',
     y; // x and y coordinates of the text
 
  function preload(){
-     font = loadFont('p5/font_assets/KumbhSans-Bold.ttf');
+     font = loadFont('assets/KumbhSans-Regular.ttf');
  }
+
+
 function setup(){
     createCanvas(710, 400);
 
