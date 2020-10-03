@@ -12,7 +12,6 @@ function setup(){
 
 
 //Global Changable Variables
-let bkColour = 0;//controlls background colour
 let ellipFill = 0;//Controlls Ellipse fill colour
 let beanieColour = 0;//Controlls Beanie colour
 
@@ -29,48 +28,16 @@ let uOrbitY = true;//controlls Up and Down movement
 
 //Drawing Function
 function draw(){
-    
-    background(bkColour);   
-
+    //controlls colour of background
+    red = random(255);
+    green = random(255);
+    blue = random(255);
+    //controlls when background changes colour
+    if( i = random(100) < 5){ background(red, green, blue);  }
+    //moving box
+    rect1();
     face();
-    
-}
-
-function ellipse1(){
-    //Ellipse
-    fill(ellipFill, 50, 0);//Controlls Ellipse fill colour
-    ellipFill += 1;
-    mx = mouseX;
-    my = mouseY;
-    if(mx > 1500){mx = 1500;}
-    if(mx < 250){mx = 250;}
-    if(my > 700){my = 700}
-    if(my < 150){my = 150;}
-    ellipse(mx, my, 25, 25);
-    if(ellipFill > 255){ellipFill = 5;}
-}
-
-function ellipse2(){
-    //Ellipse
-    fill(0, 255, 0);//Controlls Ellipse fill colour
-    ellipse(width/2, height/2, 150, 150);
-    if(ellipFill > 255){ellipFill = 5;}
-}
-
-function ellipse3Orbit(){
-    //Ellipse
-    fill(153, 76, 0);//Controlls Ellipse fill colour
-    
-    //orbit position
-    if(orbitX >= 450){sOrbitX = false;}
-    if(orbitY <= 300){sOrbitX = true;}
-    if(orbitX <= 800){sOrbitX = true;}
-    if(orbitY >= 600){sOrbitX = false;}
-    if(sOrbitX){orbitX += 1;}else{orbitX -=1;}
-    if(uOrbitY){orbitY += 1;}else{orbitY -=1;}
-
-    ellipse(orbitX, orbitY, 50, 50)
-
+    eyes();   
 }
 
 //handles drawing the face and anything attached to the head
@@ -104,6 +71,31 @@ function face(){
     //Mouth
     fill(240,128,128);
     ellipse(width/2,height/2+170, 200, 40);
+    //line on mouth
+    stroke(0);
+    line(width/2-100,height/2+170, width/2+100,height/2+170)
+
+    //nose
+    line(width/2,height/2,width/2,height/2+80)
+    line(width/2,height/2+80,width/2+20,height/2+60)
+    line(width/2,height/2+80,width/2-20,height/2+60)
+}
+
+//controlls the eye postion
+let LeyeX = 730;//Left eye starting postion
+let leyeY = 395;
+let ReyeX = 970;//Right eye starting postion
+let ReyeY = 395;
+function eyes(){
+    fill(0);
+    //changes eye postion
+    if(LeyeX <= mouseX && LeyeX <=760 || LeyeX <=700){LeyeX +=2;}else{LeyeX -=2;}
+    if(leyeY <= mouseY && leyeY <=415 || leyeY <=375){leyeY +=1;}else{leyeY -=1;}
+    if(ReyeX <= mouseX && ReyeX <=1000 || ReyeX <=920){ReyeX +=1;}else{ReyeX -=1;}
+    if(ReyeY <= mouseY && ReyeY <=415 || ReyeY <=380){ReyeY +=1;}else{ReyeY -=1;}
+    ellipse(LeyeX,leyeY, 25, 25)
+    ellipse(ReyeX,ReyeY, 25, 25);
+    
 }
 
 function rect1(){
@@ -122,6 +114,6 @@ function rect1(){
     offsetY += 5;
 
     //resets rect postion
-    if(offsetX >= width){offsetX = 0;}
-    if(offsetY >= height){offsetY = 0;}
+    if(offsetX >= width){offsetX = random(width);}
+    if(offsetY >= height){offsetY = random(height);}
 }

@@ -1,0 +1,43 @@
+if exited --> exit program
+
+activate js Script
+
+do function Setup()
+    set canvas parameters
+    set any other immutable var
+
+do function draw()
+    if(can change background colour = true){
+        background colour = background colour
+        }
+    
+    goto randomBox();
+
+    goto face();
+
+    goto eyes();
+
+
+function face(){
+    set face colours
+    create normal face
+    create normal face features
+    set eye postion
+}
+
+function eyes(){
+    set eye colour
+    set eye start postion
+    move eyes towards mouse
+    if eye != distance from eye centre{
+        set eye new postion
+    }
+
+}
+
+function randomBox(){
+    set box colour
+    set box start postion
+    move box from right to left some amout of space
+    if(box reaches edge of canvas){reset box postion}
+}
