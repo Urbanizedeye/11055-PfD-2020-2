@@ -10,7 +10,7 @@ function findBooks(){
     .then(a => a.json())
     .then(Response =>{
         for(var i=0; i < Response.docs.length; i++){//this is the formating of the information gotten from openlibraries
-            document.getElementById("output").innerHTML+="<a href='"+Response.docs[i].url[0]+"'>"+"<h2>"+Response.docs[i].title+"</h2>"+"</a>"+
+            document.getElementById("output").innerHTML+="<h2>"+Response.docs[i].title+"</h2>"+
             Response.docs[i].author_name[0]+
             "<br><img src='http://covers.openlibrary.org/b/isbn/"+Response.docs[i].isbn[0]+"-M.jpg'><br>";
         }
@@ -20,7 +20,6 @@ function findBooks(){
 //This function shows that the isbn file is there to be accessed
 function tellIsbnKeys(){
     let sentence = "ISBN Numbers Found: ";
-    var newPara = document.createElement("P");//creates new html element
     if(isbnlist){
         for(let i = 0; i < isbnlist.length; i++){
             sentence = sentence +"ISBN: "+isbnlist[i]+" ";
@@ -28,9 +27,7 @@ function tellIsbnKeys(){
     } else{
         sentence = "There is no isbn.js file";
     }
-    
-    newPara.innerText = sentence;//makes the sentence string the inside text to the new element
-    document.body.appendChild(newPara);//appends the new html element to the body
+    document.getElementById("isbnListThere").innerHTML= sentence;
 }
 
 
@@ -42,7 +39,7 @@ function getBooksMovies(){
         .then(a => a.json())
         .then(Response =>{
         for(var x=0; x < Response.docs.length; x++){//this is the formating of the information gotten from openlibraries
-            document.getElementById("output").innerHTML+="<a href='"+Response.docs[x].url[0]+"'>"+"<h2>"+Response.docs[x].title+"</h2>"+"</a>"+
+            document.getElementById("isbnResults").innerHTML+="<h2>"+Response.docs[x].title+"</h2>"+
             Response.docs[x].author_name[0]+
             "<br><img src='http://covers.openlibrary.org/b/isbn/"+Response.docs[x].isbn[0]+"-M.jpg'><br>";
         }
@@ -51,4 +48,5 @@ function getBooksMovies(){
 }
 
 tellIsbnKeys();
+getBooksMovies();
 
