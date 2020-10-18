@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <header style="font-size: 2.5cm; align-self: start;">Book finder</header>
+    <header style="font-size: 2.5cm; align-self: start;">Book finder</header><!--What the page is-->
+    <script src="isbn.js"></script><!--File containing the isbn Numbers needs to be run first and put into global directory-->
     <body>
-        <p1 id="para1">This is a Sentence</p1>
+        <input id="input">
+        <button onclick="findBooks()">Get books</button><!--Activates the getBooks() Function-->
+        <div id="output"></div><!--output for findBooks()-->
+        <div id="isbnResults"></div><!--output for getBooksMovies()-->
     </body>
-    <script src="isbn.js"></script><!--File containing the isbn Numbers-->
-    <script src="isbnFinder.js"></script><!--This handles getting all the books and movies then returns -->
+    <script src="./isbnFinder.js"></script><!--This handles getting all the books and movies then puts them in a new element -->
 </html>
