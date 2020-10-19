@@ -33,17 +33,21 @@ function tellIsbnKeys(){
 
 //gets the books and movies connected to the isbn numbers
 function getBooksMovies(){
-    for(var i=0; i < isbnlist.length; i++){
-        document.getElementById("isbnResults").innerHTML="";
-        fetch("http://openlibrary.org/search.json?isbn="+isbnlist[i])//gets the results for the isbn search
-        .then(a => a.json())
-        .then(Response =>{
-        for(var x=0; x < Response.docs.length; x++){//this is the formating of the information gotten from openlibraries
-            document.getElementById("isbnResults").innerHTML+="<h2>"+Response.docs[x].title+"</h2>"+
-            Response.docs[x].author_name[0]+
-            "<br><img src='http://covers.openlibrary.org/b/isbn/"+Response.docs[x].isbn[0]+"-M.jpg'><br>";
+    if(isbnlist != 0){
+        for(var i=0; i < isbnlist.length; i++){
+            document.getElementById("isbnResults").innerHTML="";
+            fetch("http://openlibrary.org/search.json?isbn="+isbnlist[i])//gets the results for the isbn search
+            .then(a => a.json())
+            .then(Response =>{
+            for(var x=0; x < Response.docs.length; x++){//this is the formating of the information gotten from openlibraries
+                document.getElementById("isbnResults").innerHTML+="<h2>"+Response.docs[x].title+"</h2>"+
+                Response.docs[x].author_name[0]+
+                "<br><img src='http://covers.openlibrary.org/b/isbn/"+Response.docs[x].isbn[0]+"-M.jpg'><br>";
+            }
+        });
         }
-    });
+    } else{
+        document.getElementById("isbnResults").innerHTML = "There are no isbn numbers.";
     }
 }
 
