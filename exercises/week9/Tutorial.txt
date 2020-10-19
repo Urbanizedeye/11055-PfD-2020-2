@@ -1,0 +1,30 @@
+
+
+Overview
+
+Git (for project)
+
+Object exercises
+
+time for project questions
+
+
+
+var arr = [100,200];
+var arr1 = [[200,100], [300,200], [400,200]];
+
+
+document.write(arr[0]);
+document.write(arr1[2][0]);
+document.write(arr1.length + "<br/>");
+
+sploge(arr1);
+
+function sploge(arrayset, colour, lineweight) {
+    
+    for (i=0; i< arrayset.length; i++) {
+        for (j =0; j < 2; j++) {
+            document.write(arrayset[i][j] + "<br/>");
+        }
+    }
+}
