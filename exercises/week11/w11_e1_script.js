@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-    var winA = new aWindow(100, 100, 5, 'red');
+    var winA = new aWindow(100, 100, 5, 'pink');
     winA.drawWindow();
     
     winA.setPos(250, 80);

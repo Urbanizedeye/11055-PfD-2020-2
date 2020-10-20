@@ -54,7 +54,7 @@ class aWindow {
 
 
 class aFloor{
-
+    
     /*
     x = position from the left
     y = position from the top
@@ -79,7 +79,6 @@ class aFloor{
     }
 
     drawFloor() {
-
 
         // use the provided colour
         fill(this.colour);
@@ -115,5 +114,12 @@ class aFloor{
         } 
 
     }
+
+}
+
+class aHouse{
+
+
+    constructor(x,y,){}
 
 }

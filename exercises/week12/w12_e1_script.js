@@ -19,5 +19,5 @@ for (let i = 0; i < isbnarr.length; i++) {
 
 // the for (variable of iterable) will loop through each item in an array
 for (x of bookarr) {
-    document.write(x.display());
+    document.write("<br>"+x.display()+"</br>");
 }

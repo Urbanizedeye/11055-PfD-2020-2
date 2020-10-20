@@ -11,8 +11,8 @@ you might even include your name and the date */
 
 function setup() {
     // Sets the screen to be 720 pixels wide and 400 pixels high
-    createCanvas(720, 400);
-    background(255);
+    createCanvas(1000, 600);
+    background(100, 0, 150);
 }
 
 function draw() {
@@ -20,4 +20,9 @@ function draw() {
 
     // call your new class correctly
     
+    var floor1 =  new aFloor(100, 400, 4, 125, 4, true)
+    var floor2 =  new aFloor(100, 50, 4, 125, 4, false)
+    floor2.drawFloor();
+    floor1.drawFloor();
+    noLoop();
 }
