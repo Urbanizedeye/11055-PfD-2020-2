@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <header style="font-size: 2.5cm; align-self: start;">Book finder</header><!--What the page is-->
+    <link rel="stylesheet" href="project2.css">
     <script src="isbn.js"></script><!--File containing the isbn Numbers needs to be run first and put into global directory-->
-    <body>
-        <input id="input">
-        <button onclick="findBooks()">Get books</button><!--Activates the getBooks() Function-->
-        <div id="output">The Books your searching for</div><!--output for findBooks()-->
-        <div id="isbnListThere"></div>
-        <div id="isbnResults">The Results for the ISBN List</div><!--output for getBooksMovies()-->
+    <script src="getBookInfo.js"></script><!--this actvivates the classes and gets them ready to be used-->
+    <body id="navBarBody">
+        <div class="topNav">
+            <a class="active" href="index.html">index</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Mystery Link??</a>
+        </div>
     </body>
-    <script src="./isbnFinder.js"></script><!--This handles getting all the books and movies then puts them in a new element -->
+    <body id="mainBody">
+        <label for="bookSearch">Book Search</label>
+        <input type="text" id="bookSearchInput" >
+        <button onclick="findBooks()">Get books</button><!--Activates the getBooks() Function-->
+        <div id="output"></div><!--output for findBooks()-->
+        <div id="isbnResults"></div><!--output for getBooksMovies()-->
+    </body>
+    <script src="jsActivator.js"></script><!--this handles activating js functions and scripts-->
 </html>
