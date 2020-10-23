@@ -6,23 +6,46 @@ body {
 }
 
 /* Handles how the results for the ISBN numbers show up */
-div.bookDetails {
+div#bookDetails {
     outline: auto;
     outline-color: black;
     margin-left: auto;
     margin-right: auto;
-    max-width: 400px;
+    max-width: 200px;
+    max-height: 400px;
     background-color: darkgray;
 }
 
 /* handles how the search results look when returned */
-div.bookSearchResults {
+div#bookSearchResults {
     outline: auto;
     outline-color: black;
     margin-left: auto;
     margin-right: auto;
-    max-width: 400px;
+    max-width: 200px;
+    height: 400px;
     background-color: darkgray;
+    padding-bottom: 40px;
+}
+
+
+/* controlls how the columns are displayed */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 400px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px){
+    .column{
+        width: 100%;
+    }
 }
 
 /* handles where the image for the book cover is */
