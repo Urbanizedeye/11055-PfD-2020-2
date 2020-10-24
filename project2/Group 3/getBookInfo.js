@@ -6,7 +6,7 @@
 
 //This function finds the book the user inputs and puts all that it finds in the output Div
 function findBooks(){
-    document.getElementById("output").innerHTML="";
+    document.getElementById("output").innerHTML="Book Search Results<br>";
     fetch("http://openlibrary.org/search.json?q="+document.getElementById("bookSearchInput").value)//gets the results for the book search
     .then(a => a.json())
     .then(Response =>{
@@ -14,12 +14,38 @@ function findBooks(){
             document.getElementById("output").innerHTML+=
             "<div class='column' id='bookSearchResults'>"+
             "<img id='searchBookCover' src='http://covers.openlibrary.org/b/isbn/"+Response.docs[i].isbn[0]+"-M.jpg' />"+
+            "<br>"+
             Response.docs[i].title+"<br>"+
             Response.docs[i].author_name[0]+"<br>"+
             Response.docs[i].isbn[0]+"<br>"+
             "</div>";
         }
     });
+}
+
+//this function finds any result for the input and displays them in output
+async function findMovie(){
+    let movieList = "";
+    let movieName = document.getElementById("movieSearchInput").value;
+    //let movieName = "The Hobbit";
+    movieList = await getMovieList(movieName);
+    document.getElementById("output").innerHTML = "Movie Search Results <br>";
+    for(let x = 0; x < movieList['results'].length; x++){//formatting for the movie information
+        document.getElementById("output").innerHTML+=
+            "<div class='column' id='bookSearchResults'>"+
+            "<img id='moviePoster' src='http://image.tmdb.org/t/p/w200/"+movieList['results'][x]['poster_path']+"' />"+
+            "<br>"+
+            movieList['results'][x]['title']+
+            "<br>"+
+            "Amount of votes: "+movieList['results'][x]['vote_count']+
+            "<br>"+
+            "Average Review: "+movieList['results'][x]['vote_average']+
+            "<br>"+
+            "Release Date: "+movieList['results'][x]['release_date']+
+            "<br>"+
+            "</div>";
+    }
+
 }
 
 //this handles getting the cover to the book for book detail
@@ -116,7 +142,13 @@ class bookDetail {
 
     getTitle(){
         //get title from json object
-        return this.detail['title']
+        //this also handles catching bad isbn numbers
+        try{
+            return this.detail['title']
+        } catch(err){
+            return undefined
+        }
+
     }
 
     getExerpt(){
@@ -157,7 +189,6 @@ async function getMovieDetail(url_a, api_key,url_b, name, url_c){
     try{
         const resp = await fetch(url);
         const jres = await resp.json();
-        console.log(jres.results);
         let movie = "";
         for(let x = 0; x < jres.results.length; x++){
             let title = jres.results[x]["title"];
@@ -166,8 +197,26 @@ async function getMovieDetail(url_a, api_key,url_b, name, url_c){
                 break;
             }
         }
-        console.log(movie);
         return movie
+    } catch(err){
+
+        throw err;
+    }
+}
+
+//gets a list of movies
+async function getMovieList(name){
+    //puts them in a movieList file
+    let api_key = "be0a41f9413fd3b245db2c906807e659";
+    let url_a = "https://api.themoviedb.org/3/search/movie?api_key=";
+    let url_b = "&language=en-US&query=";
+    let url_c = "&page=1&include_adult=false";
+
+    let url = url_a+api_key+url_b+name+url_c;
+    try{
+        const resp = await fetch(url);
+        const jres = await resp.json();
+        return jres
     } catch(err){
 
         throw err;

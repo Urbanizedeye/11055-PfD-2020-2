@@ -6,7 +6,6 @@ function main(){
     
     
     findIsbnCorrelation()
-    findMovie();
 
     // tellIsbnKeys();
     // getBooksMovies();
@@ -21,10 +20,12 @@ async function findIsbnCorrelation(){
         for(let i = 0; i < isbnlist.length; i++){
             let book = new bookDetail(isbnlist[i], "M");
             await book.getDetail();
-            let movie = new movieDetail(book.getTitle());
-            await movie.getDetail();
-            bookarr.push(book);
-            moviearr.push(movie);
+            if(book.getTitle() != undefined){
+                let movie = new movieDetail(book.getTitle());
+                await movie.getDetail();
+                bookarr.push(book);
+                moviearr.push(movie);
+            }
         }
         document.getElementById("isbnResults").innerHTML +="The Results for the ISBN List</br>";
         let y = 0;
@@ -39,24 +40,21 @@ async function findIsbnCorrelation(){
             "<br>"+
             "Pages: "+x.getPageAmount()+
             "</div>";
-
-            document.getElementById("isbnResults").innerHTML +=
-            "<div class='column' id='bookDetails'>"+
-            moviearr[y].getPosterImage()+
-            "<br>"+
-            moviearr[y].getName()+
-            "<br>"+
-            "Released: "+moviearr[y].getReleaseDate()+
-            "Average Rating: "+moviearr[y].getAverageRating()+
-            "</div>";
+            if(moviearr[y].getReleaseDate() != undefined){
+                document.getElementById("isbnResults").innerHTML +=
+                "<div class='column' id='bookDetails'>"+
+                moviearr[y].getPosterImage()+
+                "<br>"+
+                moviearr[y].getName()+
+                "<br>"+
+                "Released: "+moviearr[y].getReleaseDate()+
+                "<br>"+
+                "Average Rating: "+moviearr[y].getAverageRating()+
+                "</div>";
+            }
             y++;
         }
     } else{
         document.getElementById("isbnResults").innerHTML = "There are no elements in the isbnList try with a new file."
     }
-}
-
-async function findMovie(){
-    let movie = new movieDetail("the hobbit");
-    await movie.getDetail();
 }
